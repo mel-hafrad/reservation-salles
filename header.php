@@ -18,6 +18,7 @@
     <header id="navbar" class="nav">
         <a href="index.php">Acceuil</a>
         <a href="#">Contact</a>
+        <a href="index.php">Profil</a>
         <div class="dropdown-1">
             <button id="button">Pages</button>
             <div class="content">
@@ -36,6 +37,7 @@
         <?php if(isset($_SESSION['user'])){?>
 
         <h2 id="h2co"><a href="reservation-form.php" style=color:grey;>Réserver</a></h2>
+        <h2 id="h2co"><a href="profil.php" style=color:grey;>Profil</a></h2>
 
         <?php } ?>
     </div>

@@ -10,9 +10,10 @@ a {
     color: black;
 }
 
-html{
-    min-height:100%
+html {
+    min-height: 100%
 }
+
 
 /*header*/
 
@@ -151,7 +152,6 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-
 .container {
     max-width: 1170px;
     margin: auto;
@@ -288,4 +288,3 @@ ul {
 
 
 /*Footer*/
-
