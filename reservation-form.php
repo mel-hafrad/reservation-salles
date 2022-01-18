@@ -2,28 +2,42 @@
         require 'config.php';
         session_start(); 
         // si la session existe pas soit si l'on est pas connecté on redirige
-    if(!isset($_SESSION['user'])){
+    if(!isset($_SESSION['login'])){
         header('Location:index.php');
         die();
     }?>
 <!DOCTYPE html>
-<div class="article">
-    <form action="inscription.php" method="post" id="form-reser">
-        <div class="form-group">
-            <input type="text" name="titre" class="form-control" placeholder="Titre" required="required" autocomplete="off">
-        </div>
-        <div class="form-group">
-            <input type="text" name="description" class="form-control" placeholder="Description" required="required" autocomplete="off">
-        </div>
-        <div class="form-group">
-            <span class="label label-default">Début résevation</span>
-            <input type="date" name="date_debut" class="form-control" placeholder="date_debut" required="required" autocomplete="off" min="2022-01-01">
-        </div>
-        <div class="form-group">
-            <span class="label label-default">Fin résevation</span>
-            <input type="date" name="date_fin" class="form-control" placeholder="date_fin" required="required" autocomplete="off" max="2022-12-31">
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">Réserver<?php echo ' '. $_SESSION['user'];?></button>
-    </form>
-</div>
-</html>
+<form action="reservation-form.php" method="post">
+
+   <legend>Evenement </legend>
+   <label>Titre :</label>
+	<input type="text" name="titre" >
+
+<label>Description :</label>
+        <input type="text" name="description">  
+<legend>date </legend>      
+<label>Date de début :</label>
+
+	<input type="datetime-local" name="debut">
+<label>Date de fin :</label>
+        <input type="datetime-local" name="fin">
+        <input type="submit" name="reserver" value="Reserver">
+</form>
+
+<?php
+if(isset($_POST["reserver"]))
+{
+	$titre= $_POST["titre"];
+	$description= $_POST["description"];
+	$debut= $_POST["debut"];
+	$fin= $_POST["fin"];		
+    $connexion = mysqli_connect("localhost", "root", "", "reservationsalles");
+    
+	$requete = "INSERT INTO `reservations` (`titre`, `description`, `debut`, `fin`, `id_utilisateur`)
+	VALUES('".$titre."', '".$description."', '".$debut."', '".$fin."' , '".$_SESSION["id"]."')"; 
+  $query = mysqli_query($connexion, $requete);
+	header('Location: planning.php');
+}
+
+?>
+		

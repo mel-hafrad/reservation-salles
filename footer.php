@@ -6,7 +6,7 @@
                 <div class="footer-col">
                     <h4> Nouvel utilisateur</h4>
                     <ul>
-                        <li><a href="inscrption.php">Inscription</a></li>
+                        <li><a href="inscription.php">Inscription</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">

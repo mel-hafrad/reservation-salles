@@ -1,4 +1,18 @@
 <?php
+    session_start();
+?>
+<p style="text-align:center"><?php 
+  
+    if (isset($_SESSION['login'])) {
+        $msg = "Vous êtes déjà connecté";
+    } else {                                                        //ce bout de code me sert a savoir si l'user est connecté
+        $msg = "Vous êtes déconnecter";
+    }
+
+    ?>
+<p>
+
+<?php
 
 if (isset($_GET['login_err'])) {
     $err = htmlspecialchars($_GET['login_err']);
@@ -23,6 +37,7 @@ if (isset($_GET['login_err'])) {
         case 'already'
 ?>
 <div class="alert alert-danger">
+    
     <strong>Erreur</strong>compte non existant
 </div>
 <?php
@@ -30,11 +45,17 @@ if (isset($_GET['login_err'])) {
     }
 }
 ?>
+
+
+
 <?php include 'header.php'?>
 
 <div class="article">
             <form action="connexion.php" method="post">     
                 <div class="form-group">
+                    <?php if(isset($msg)){
+                        echo $msg;
+                    }?>
                     <input type="login" name="login" class="form-control" placeholder="login" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
@@ -45,15 +66,4 @@ if (isset($_GET['login_err'])) {
                 </div>   
             </form>
 </div>
-<p style="text-align:center">
-    <?php
-    session_start();
-    if (isset($_SESSION['user'])) {
-        echo "Vous êtes déjà connecté";
-    } else {                                                        //ce bout de code me sert a savoir si l'user est connecter
-        echo "Vous êtes déconnecter";
-    }
-
-    ?>
-<p>
 <?php include 'footer.php'?>

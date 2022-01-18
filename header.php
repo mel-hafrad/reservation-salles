@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -18,26 +19,37 @@
     <header id="navbar" class="nav">
         <a href="index.php">Acceuil</a>
         <a href="#">Contact</a>
-        <a href="index.php">Profil</a>
+
+        <?php if(isset($_SESSION['login'])){?>
+
+        <a href="profil.php">Profil de <?=$_SESSION['login']?></a>  
+            <!-- dissimuler l'onglet si pas connecté  -->
+        <?php } ?>
+
+
+
         <div class="dropdown-1">
             <button id="button">Pages</button>
             <div class="content">
                 <a href="inscription.php">Inscription</a>
                 <a href="connexion.php">Connexion</a>
-                <a href="deconnexion.php">Déconnect</a>
+                <a href="deconnexion.php">Deconnect</a>
             </div>
         </div>
-        <a href="reservation-form.php">Réserver</a>
+
+        <div class="dropdown-1">
+        <?php if(isset($_SESSION['login'])){?>
+
+            <button id="button">Réserver</button>
+
+<?php } ?>
+
+                <div class="content">
+                <a href="planning.php">Planning</a>
+                <a href="reservation-form.php">Réserver</a>
+            </div>
+        </div>
         <a class="icon" onclick="myFunction()">&#9776;</a>
     </header>
-    <div id="oui">
-        <h2 id="h2co"><a href="inscription.php" style=color:grey;>Inscription</a></h2>
-        <h2 id="h2co"><a href="connexion.php"style=color:grey;>Connexion</a></h2>
-
-        <?php if(isset($_SESSION['user'])){?>
-
-        <h2 id="h2co"><a href="reservation-form.php" style=color:grey;>Réserver</a></h2>
-        <h2 id="h2co"><a href="profil.php" style=color:grey;>Profil</a></h2>
-
-        <?php } ?>
+    
     </div>

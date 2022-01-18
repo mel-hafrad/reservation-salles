@@ -4,15 +4,14 @@
     padding: 0;
     list-style: none;
     text-decoration: none;
+   
 }
 
 a {
     color: black;
 }
 
-html {
-    min-height: 100%
-}
+
 
 
 /*header*/
@@ -26,6 +25,8 @@ header {
     align-items: center;
     position: relative;
     flex-direction: row;
+    margin-top: -20px;
+    
 }
 
 header a {
@@ -288,3 +289,7 @@ ul {
 
 
 /*Footer*/
+
+
+/*planning*/
+

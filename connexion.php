@@ -21,7 +21,8 @@ if (!empty($_POST['login']) && !empty($_POST['password'])) // Si il existe les c
         // Si le mot de passe est le bon
         if (password_verify($password, $data['password'])) {
             // On créer la session et on redirige sur landing.php
-            $_SESSION['user'] = $data['login'];
+            $_SESSION['login'] = $data['login'];
+            $id = $_SESSION["id"];
             header('Location:landing.php');
             die();
         } else {

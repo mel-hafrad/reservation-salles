@@ -56,7 +56,7 @@ if($row == 0){
                       'password' => $password,
 
                   ));               // On redirige avec le message de succès
-                  header('Location:landing.php?reg_err=success');
+                  header('Location:index.php?reg_err=success');
                   die();
               }else{ header('Location: inscription.php?reg_err=password'); die();}
       }else{ header('Location: inscription.php?reg_err=pass_length'); die();}
@@ -64,14 +64,6 @@ if($row == 0){
 }else{ header('Location: inscription.php?reg_err=already'); die();}
 }
 ?>
-
-
-
-
-
-
-
-
 
 
 
